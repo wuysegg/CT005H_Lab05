@@ -113,6 +113,81 @@
             height: 100%;
         }
 
+        /* --- Personal profile layout --- */
+        .profile {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(2,6,23,0.06);
+            flex-shrink: 0;
+        }
+
+        .profile-info h1 {
+            font-size: 1.6rem;
+            margin: 0 0 6px 0;
+        }
+
+        .profile-info .role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* --- Products grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .product-card {
+            background: #fbfdff;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #eef2f7;
+            box-shadow: 0 8px 18px rgba(2,6,23,0.03);
+        }
+
+        .product-card h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .product-card p {
+            margin: 8px 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .pdf-preview {
+            border: 1px solid #e6eef6;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 220px;
+            background: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .profile { flex-direction: column; align-items: center; text-align: center; }
+            .product-grid { grid-template-columns: 1fr; }
+        }
+
         footer {
             margin-top: 60px;
             text-align: center;
@@ -139,30 +214,56 @@
 
 <div class="container">
     <header>
-        <h1>Kỷ Nguyên Học Tập Kỹ Thuật Số</h1>
-        <p class="description">
-            Khám phá cách công nghệ xóa bỏ mọi rào cản, mở ra những cơ hội học tập không giới hạn trong thời đại mới.
-        </p>
+        <div class="profile">
+            <img class="avatar" src="Lab05_Ex2.1.png" alt="Ảnh đại diện">
+            <div class="profile-info">
+                <h1>Nguyễn Văn A</h1>
+                <div class="role">Sinh viên - Kỹ thuật phần mềm</div>
+                <p class="description">Tôi là sinh viên chuyên ngành Công nghệ thông tin, đam mê phát triển web, thiết kế tài liệu học tập và sản xuất nội dung số. Trang này trình bày thông tin cá nhân và một số sản phẩm tiêu biểu tôi đã thực hiện.</p>
+                <p class="description">Email: <a href="mailto:nguyenvana@example.com">nguyenvana@example.com</a> • Mã SV: 20211234</p>
+            </div>
+        </div>
     </header>
 
-    <div class="media-section">
-        <h3>TỔNG QUAN HỆ THỐNG</h3>
-        <div class="img-wrapper">
-            <img src="Lab05_Ex2.1.png" alt="Infographic Digital Technology in Learning">
-        </div>
-    </div>
+    <section class="media-section">
+        <h3>SẢN PHẨM CỦA TÔI</h3>
+        <div class="product-grid">
 
-    <div class="media-section">
-        <h3>TƯƠNG LAI CỦA CÔNG NGHỆ</h3>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/smBm8Ox-Mo8" 
-                    title="Technology and Future" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-            </iframe>
+            <article class="product-card">
+                <h4>1. Tài liệu (PDF)</h4>
+                <p>Lab05_Ex1.2.pdf — Tài liệu mô tả nội dung bài lab và nghiên cứu.</p>
+                <div class="pdf-preview">
+                    <embed src="Lab05_Ex1.2.pdf" type="application/pdf" width="100%" height="100%">
+                </div>
+                <p><a href="Lab05_Ex1.2.pdf" download>⬇️ Tải xuống PDF</a></p>
+            </article>
+
+            <article class="product-card">
+                <h4>2. Hình ảnh (PNG)</h4>
+                <p>Infographic về công nghệ trong học tập.</p>
+                <div class="img-wrapper">
+                    <img src="Lab05_Ex2.1.png" alt="Infographic Digital Technology in Learning">
+                </div>
+                <p><a href="Lab05_Ex2.1.png" download>⬇️ Tải xuống PNG</a></p>
+            </article>
+
+            <article class="product-card">
+                <h4>3. Video (YouTube)</h4>
+                <p>Video minh họa tương lai công nghệ.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/smBm8Ox-Mo8" 
+                            title="Technology and Future" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <p><a href="https://www.youtube.com/watch?v=smBm8Ox-Mo8" target="_blank">⟶ Xem trên YouTube</a></p>
+            </article>
+
         </div>
-    </div>
+    </section>
+
 </div>
 
 <footer>
